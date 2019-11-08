@@ -176,8 +176,6 @@ function mm_cce_cookies_options_seite() {
 			<?php submit_button(); ?>
 		</form>
 	</div>
-		
-
 <?php
 }
     

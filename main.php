@@ -26,11 +26,10 @@
 
 $plugin_data = get_file_data(__FILE__, array('Version' => 'Version'), false);
 $plugin_version = $plugin_data['Version'];
+define( 'MM_CC_VERSION', $plugin_version );
 
 require_once plugin_basename( '/admin/settings.php' );
 require_once plugin_basename( '/content/content.php' );
-
-
 
 add_action( 'init', function () {
 	load_plugin_textdomain( 'mm-cookie-consent-europe' );
@@ -40,7 +39,6 @@ add_action( 'init', function () {
         pll_register_string( __( 'Text in cookie button' ), __( 'Selvä' ), 'mm tools' );
 	}
 } );
-
 
 add_action( 'plugin_action_links_' . plugin_basename(__FILE__), 'mm_cce_add_plugin_page_settings_link' );
 
@@ -52,23 +50,33 @@ function mm_cce_add_plugin_page_settings_link( $links ) {
 	return $links;
 }
 
-add_action( 'wp_enqueue_scripts', 'mm_cce_register_script' );
-add_action( 'admin_menu', 'mm_cce_register_script' );
+add_action( 'admin_menu', 'mm_cce_register_script_backend' );
 
-function mm_cce_register_script() {
+function mm_cce_register_script_backend() {
 	wp_enqueue_style( 'wp-color-picker' );
 	wp_enqueue_script( 'wp-color-picker-alpha', plugins_url( 'assets/js/wp-color-picker-alpha.min.js', __FILE__ ), array( 'wp-color-picker' ) );
 	
-	wp_register_script( 'mm_cce_js', plugins_url( 'assets/js/custom.js', __FILE__ ), array( 'jquery', 'wp-color-picker' ),  $plugin_version );
-	wp_enqueue_script( 'mm_cce_js' );
+	wp_register_script( 'mm_cce_backend_js', plugins_url( 'assets/js/backend.js', __FILE__ ), array( 'jquery', 'wp-color-picker' ),  MM_CC_VERSION );
+	wp_enqueue_script( 'mm_cce_backend_js' );
 }
 
-add_action('wp_footer', 'mm_cce_insert');
+add_action( 'wp_enqueue_scripts', 'mm_cce_register_script_frontend' );
 
-function mm_cce_insert() {
-	echo mm_cce_content();
+function mm_cce_register_script_frontend() {
+	
+	wp_register_script( 'mm_cce_frontend_js', plugins_url( 'assets/js/frontend.js', __FILE__ ), array( 'jquery' ),  MM_CC_VERSION );
+	wp_enqueue_script( 'mm_cce_frontend_js' );
 }
 
+/** Check if cookie doesnt exist then show popup */
+if( !isset($_COOKIE['mm_cce_cookies_cookie']) ) {
 
+	add_action('wp_footer', 'mm_cce_insert');
+
+	function mm_cce_insert() {
+		echo mm_cce_content();
+	}
+
+}
 
 ?>
