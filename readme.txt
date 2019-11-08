@@ -35,6 +35,10 @@ So that I can answer here.
 
 == Changelog ==
 
-= 1.0 =
+= 1.0.1 =
+* HTML5 color picker replaced with wpColorPicker with transparency option.
+* Directory restructered for assets (js).
+
+= 1.0.0 =
 * Version released.
 

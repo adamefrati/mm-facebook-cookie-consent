@@ -1,3 +1,6 @@
+jQuery(document).ready(function($){
+    $('.colorpicker').wpColorPicker();
+});
 jQuery( document ).ready( function () {
 	if( document.cookie.indexOf( "mm_cce_cookies_cookie" ) === -1 ) {
 		jQuery( "#mm_cce" ).show();

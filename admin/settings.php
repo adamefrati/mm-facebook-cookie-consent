@@ -49,6 +49,10 @@ function mm_cce_cookies_options_seite() {
 			padding: 15px;
 		}
 		legend { font-weight: bold; }
+		.wp-picker-container .iris-picker {
+		    position: absolute;
+		    z-index: 2;
+		}
 	</style>
 	<div class="wrap">
 		<h1><?php _e( 'Cookie Consent', 'mm-cookie-consent-europe' ); ?></h1>
@@ -58,12 +62,12 @@ function mm_cce_cookies_options_seite() {
 			<fieldset>
 				<legend><?php _e( 'Cookie notice settings', 'mm-cookie-consent-europe' ); ?></legend>
 				<p>
-					<b><?php _e( 'Background color', 'mm-cookie-consent-europe' ); ?>:</b>
-					<input type="color"  name="mm_cce_bgcolor" value="<?php echo esc_attr( get_option( 'mm_cce_bgcolor', "#333333" ) ); ?>" />
+					<b><?php _e( 'Background color', 'mm-cookie-consent-europe' ); ?>:</b><br />
+					<input type="text" class="colorpicker" data-alpha="true" name="mm_cce_bgcolor" value="<?php echo esc_attr( get_option( 'mm_cce_bgcolor', "#333333" ) ); ?>" />
 				</p>
 				<p>
-					<b><?php _e( 'Text color', 'mm-cookie-consent-europe' ); ?>:</b>
-					<input type="color"  name="mm_cce_textcolor" value="<?php echo esc_attr( get_option( 'mm_cce_textcolor', "#ffffff" ) ); ?>" />
+					<b><?php _e( 'Text color', 'mm-cookie-consent-europe' ); ?>:</b><br />
+					<input type="text" class="colorpicker" data-alpha="true" name="mm_cce_textcolor" value="<?php echo esc_attr( get_option( 'mm_cce_textcolor', "#ffffff" ) ); ?>" />
 				</p>
                 <?php
                     if( function_exists( 'pll_register_string' ) ) { ?>
@@ -86,23 +90,23 @@ function mm_cce_cookies_options_seite() {
                 	<tr>
                 		<td>
 							<p>
-								<b><?php _e( 'Button color', 'mm-cookie-consent-europe' ) ?>:</b>
-								<input type="color"  name="mm_cce_buttonbgcolor" value="<?php echo esc_attr( get_option( 'mm_cce_buttonbgcolor', "#000000" ) ); ?>" />
+								<b><?php _e( 'Button color', 'mm-cookie-consent-europe' ) ?>:</b><br />
+								<input type="text" class="colorpicker" data-alpha="true" name="mm_cce_buttonbgcolor" value="<?php echo esc_attr( get_option( 'mm_cce_buttonbgcolor', "#000000" ) ); ?>" />
 							</p>
 							<p>
-								<b><?php _e( 'Text color in button', 'mm-cookie-consent-europe' ) ?>:</b>
-								<input type="color"  name="mm_cce_buttontextcolor" value="<?php echo esc_attr( get_option( 'mm_cce_buttontextcolor', "#ffffff" ) ); ?>" />
+								<b><?php _e( 'Text color in button', 'mm-cookie-consent-europe' ) ?>:</b><br />
+								<input type="text" class="colorpicker" data-alpha="true" name="mm_cce_buttontextcolor" value="<?php echo esc_attr( get_option( 'mm_cce_buttontextcolor', "#ffffff" ) ); ?>" />
 			                </p>
 			            </td>
 
                 		<td style="padding-left:25px;">
 							<p>
-								<b><?php _e( 'Button hover color', 'mm-cookie-consent-europe' ) ?>:</b>
-								<input type="color"  name="mm_cce_buttonbgcolor_hover" value="<?php echo esc_attr( get_option( 'mm_cce_buttonbgcolor_hover', "#131313" ) ); ?>" />
+								<b><?php _e( 'Button hover color', 'mm-cookie-consent-europe' ) ?>:</b><br />
+								<input type="text" class="colorpicker" data-alpha="true" name="mm_cce_buttonbgcolor_hover" value="<?php echo esc_attr( get_option( 'mm_cce_buttonbgcolor_hover', "#131313" ) ); ?>" />
 							</p>
 							<p>
-								<b><?php _e( 'Text hover color in button', 'mm-cookie-consent-europe' ) ?>:</b>
-								<input type="color"  name="mm_cce_buttontextcolor_hover" value="<?php echo esc_attr( get_option( 'mm_cce_buttontextcolor_hover', "#ffffff" ) ); ?>" />
+								<b><?php _e( 'Text hover color in button', 'mm-cookie-consent-europe' ) ?>:</b><br />
+								<input type="text" class="colorpicker" data-alpha="true" name="mm_cce_buttontextcolor_hover" value="<?php echo esc_attr( get_option( 'mm_cce_buttontextcolor_hover', "#ffffff" ) ); ?>" />
 			                </p>
 			            </td>
 			        </tr>
@@ -161,12 +165,12 @@ function mm_cce_cookies_options_seite() {
 				<p>
 					<b class="fhhyperlink"><?php _e( 'Color of <strong>Learn More</strong> hyperlink', 'mm-cookie-consent-europe' ) ?>:</b>
 					<b class="fhbtn"><?php _e( 'Color of <strong>Learn More</strong> text in button', 'mm-cookie-consent-europe' ) ?>:</b><br />
-					<input type="color"  name="mm_cce_learnmore_text_color" value="<?php echo esc_attr( get_option( 'mm_cce_learnmore_text_color', '#ffffff' ) ); ?>" />
+					<input type="text" class="colorpicker" data-alpha="true" name="mm_cce_learnmore_text_color" value="<?php echo esc_attr( get_option( 'mm_cce_learnmore_text_color', '#ffffff' ) ); ?>" />
 				</p>
 				<p>
 					<b class="fhhyperlink"><?php _e( 'Color of <strong>Learn More</strong> hyperlink', 'mm-cookie-consent-europe' ) ?>:</b>
 					<b class="fhbtn"><?php _e( 'Color of <strong>Learn More</strong> text in button', 'mm-cookie-consent-europe' ) ?>:</b><br />
-					<input type="color"  name="mm_cce_learnmore_text_color_hover" value="<?php echo esc_attr( get_option( 'mm_cce_learnmore_text_color_hover', '#dadada' ) ); ?>" />
+					<input type="text" class="colorpicker" data-alpha="true" name="mm_cce_learnmore_text_color_hover" value="<?php echo esc_attr( get_option( 'mm_cce_learnmore_text_color_hover', '#dadada' ) ); ?>" />
 				</p>
 			</fieldset>
 			<?php submit_button(); ?>

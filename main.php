@@ -8,14 +8,14 @@
  * that starts the plugin.
  *
  * @link              https://linkedin.com/in/shayanabbas
- * @since             1.0.0
+ * @since             1.0.1
  * @package           Cookie Consent Europe
  *
  * @wordpress-plugin
  * Plugin Name:       COOKIE CONSENT - Myyntimaatio
  * Plugin URI:        https://myyntimaatio.fi
  * Description:       Adds a cookie notice and a privacy notice.
- * Version:           1.0.0
+ * Version:           1.0.1
  * Author:            Shayan Abbas
  * Author URI:        https://linkedin.com/in/shayanabbas
  * License:           GPL-2.0+
@@ -24,8 +24,13 @@
  * Domain Path:       /languages
  */
 
+$plugin_data = get_file_data(__FILE__, array('Version' => 'Version'), false);
+$plugin_version = $plugin_data['Version'];
+
 require_once plugin_basename( '/admin/settings.php' );
 require_once plugin_basename( '/content/content.php' );
+
+
 
 add_action( 'init', function () {
 	load_plugin_textdomain( 'mm-cookie-consent-europe' );
@@ -51,7 +56,10 @@ add_action( 'wp_enqueue_scripts', 'mm_cce_register_script' );
 add_action( 'admin_menu', 'mm_cce_register_script' );
 
 function mm_cce_register_script() {
-	wp_register_script( 'mm_cce_js', plugins_url( 'js/js.js', __FILE__ ), array( 'jquery' ) );
+	wp_enqueue_style( 'wp-color-picker' );
+	wp_enqueue_script( 'wp-color-picker-alpha', plugins_url( 'assets/js/wp-color-picker-alpha.min.js', __FILE__ ), array( 'wp-color-picker' ) );
+	
+	wp_register_script( 'mm_cce_js', plugins_url( 'assets/js/custom.js', __FILE__ ), array( 'jquery', 'wp-color-picker' ),  $plugin_version );
 	wp_enqueue_script( 'mm_cce_js' );
 }
 
