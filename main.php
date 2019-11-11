@@ -8,14 +8,14 @@
  * that starts the plugin.
  *
  * @link              https://linkedin.com/in/shayanabbas
- * @since             1.0.1
+ * @since             1.0.2
  * @package           Cookie Consent Europe
  *
  * @wordpress-plugin
  * Plugin Name:       COOKIE CONSENT - Myyntimaatio
  * Plugin URI:        https://myyntimaatio.fi
  * Description:       Adds a cookie notice and a privacy notice.
- * Version:           1.0.1
+ * Version:           1.0.2
  * Author:            Shayan Abbas
  * Author URI:        https://linkedin.com/in/shayanabbas
  * License:           GPL-2.0+
@@ -30,6 +30,16 @@ define( 'MM_CC_VERSION', $plugin_version );
 
 require_once plugin_basename( '/admin/settings.php' );
 require_once plugin_basename( '/content/content.php' );
+require_once plugin_basename( '/plugin-update-checker/plugin-update-checker.php' );
+
+// Adding plugin autoupdate feature
+$myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
+	'https://github.com/shayanabbas/mm-cookie-consent-europe/',
+	__FILE__,
+	'mm-cookie-consent-europe'
+);
+
+$myUpdateChecker->getVcsApi()->enableReleaseAssets();
 
 add_action( 'init', function () {
 	load_plugin_textdomain( 'mm-cookie-consent-europe' );
