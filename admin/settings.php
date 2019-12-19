@@ -1,12 +1,18 @@
 <?php
 
-add_action( 'admin_menu', 'mm_cce_cookies_adminmenu' );
+add_action( 'admin_menu', 'mm_cce_cookies_adminmenu', 11 );
 
 function mm_cce_cookies_adminmenu() {
 	global $_wp_last_object_menu;
 	$_wp_last_object_menu++;
 	
-	add_options_page( __( 'Cookie Consent', 'mm-cookie-consent-europe' ), __( 'Cookie Consent', 'mm-cookie-consent-europe' ), 'administrator', 'mm_cce_cookies_options', 'mm_cce_cookies_options_seite', null, $_wp_last_object_menu );
+	// If Myyntimaatio Launcher plugin is not activated
+	// Show Cookie menu under Settings tab
+	if( !is_plugin_active( 'myyntimaatio-launcher/myyntimaatio-launcher.php' ) ) {
+		add_options_page( __( 'Cookie Consent', 'mm-cookie-consent-europe' ), __( 'Cookie Consent', 'mm-cookie-consent-europe' ), 'administrator', 'mm_cce_cookies_options', 'mm_cce_cookies_options_seite', null, $_wp_last_object_menu );
+	} 
+
+	add_submenu_page( 'myyntimaatio-launcher', 'Cookie Consent', 'Cookie Consent', 'manage_options', 'mm_cce_cookies_options', 'mm_cce_cookies_options_seite', null );
 
 	add_action( 'admin_init', 'mm_cce_cookies_plugin_options' );
 }
@@ -53,7 +59,7 @@ function mm_cce_cookies_options_seite() {
 		    position: absolute;
 		    z-index: 2;
 		}
-		
+
 		.color-alpha {
 			height:100% !important;
 		}

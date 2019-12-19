@@ -54,7 +54,7 @@ add_action( 'plugin_action_links_' . plugin_basename(__FILE__), 'mm_cce_add_plug
 
 function mm_cce_add_plugin_page_settings_link( $links ) {
 	$in = '<a href="' .
-		admin_url( 'options-general.php?page=mm_cce_cookies_options' ) .
+		admin_url( 'admin.php?page=mm_cce_cookies_options' ) .
 		'">' . __('Settings') . '</a>';
 	array_unshift($links, $in);
 	return $links;
