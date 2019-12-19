@@ -53,6 +53,10 @@ function mm_cce_cookies_options_seite() {
 		    position: absolute;
 		    z-index: 2;
 		}
+		
+		.color-alpha {
+			height:100% !important;
+		}
 	</style>
 	<div class="wrap">
 		<h1><?php _e( 'Cookie Consent', 'mm-cookie-consent-europe' ); ?></h1>
