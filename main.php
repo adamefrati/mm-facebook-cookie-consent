@@ -8,14 +8,14 @@
  * that starts the plugin.
  *
  * @link              https://linkedin.com/in/shayanabbas
- * @since             1.0.2
+ * @since             1.0.3
  * @package           Cookie Consent Europe
  *
  * @wordpress-plugin
  * Plugin Name:       COOKIE CONSENT - Myyntimaatio
  * Plugin URI:        https://myyntimaatio.fi
  * Description:       Adds a cookie notice and a privacy notice.
- * Version:           1.0.2
+ * Version:           1.0.3
  * Author:            Shayan Abbas
  * Author URI:        https://linkedin.com/in/shayanabbas
  * License:           GPL-2.0+
