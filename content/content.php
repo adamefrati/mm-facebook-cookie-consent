@@ -92,7 +92,7 @@ function mm_bcc_content() {
 					else echo esc_attr( get_option( 'mm_bcc_text', __( 'Verkkosivumme käyttää evästeitä saadaksesi parhaan käyttökokemuksen. Jatkaessasi sivuston käyttöä hyväksyt evästeet. ', 'mm-facebook-cookie-consent' ) ) );
 			?>
 			<?php if( 1 == esc_attr( get_option( 'mm_bcc_show_hyperlink_learnmore', 1 ) ) ) { ?>
-				<a href="<?php 
+				<a target="_blank" href="<?php 
 					if( !function_exists( 'pll_register_string' ) ) {
 						echo get_page_link( esc_attr( get_option( 'mm_bcc_learnmore_link', 1 ) ) ); 
 					} else {

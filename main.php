@@ -79,7 +79,7 @@ function mm_bcc_register_script_frontend() {
 	wp_enqueue_script( 'mm_bcc_frontend_js' );
 
 
-	wp_localize_script('mm_bcc_frontend_js', 'WPURLS', array( 'siteurl' => get_option('siteurl'), 'ajax_url' => admin_url('admin-ajax.php') ));
+	wp_localize_script('mm_bcc_frontend_js', 'WPURLS', array( 'siteurl' => get_option('siteurl'), 'ajax_url' => admin_url('admin-ajax.php'), 'mm_cookie_page' => get_option( 'mm_bcc_learnmore_link', 1 ), 'mm_current_page' => get_the_ID() ));
 
 
 	wp_register_script( 'mm_bcc_modal_js', plugins_url( 'assets/js/jquery.modal.min.js', __FILE__ ), array( 'jquery' ),  MM_CC_VERSION );
