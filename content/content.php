@@ -2,6 +2,10 @@
 function mm_bcc_content() {
 ?>
 <style>
+	.blocker {
+		z-index: 99999;
+	}
+
 	.modal {
 		max-width: 50vw;
 	}
@@ -12,6 +16,7 @@ function mm_bcc_content() {
 	#mm_bcc { 
 		padding:5%;
 		background: <?php echo esc_attr( get_option( 'mm_bcc_bgcolor', '#e5e5e5' ) ); ?>;
+		z-index: 2000;
 	}
 
 
@@ -24,16 +29,22 @@ function mm_bcc_content() {
 	#mm_bcc h1 {
 		color: <?php echo esc_attr( get_option( 'mm_bcc_textcolor', '#353535' ) ); ?>;
 		text-align: center;
+		font-size: 2.5rem;
 	}
 	
 	#mm_bcc p {
 		color: <?php echo esc_attr( get_option( 'mm_bcc_textcolor', '#353535' ) ); ?>;
+		font-size: 1rem;
 	}
 
 	#mm_bcc .mainbutton_nessacary {
 		width:100%;
 		border:none;
 		color: <?php echo esc_attr( get_option( 'mm_bcc_learnmore_text_color', "#353535" ) ); ?>;
+		background-color: transparent;
+	    font-size: 1rem;
+	    padding: 0.5rem 1rem;
+	    margin-top: 0.5rem;
 	}
 	#mm_bcc .mainbutton_nessacary:focus {
 		background: none;
@@ -51,6 +62,8 @@ function mm_bcc_content() {
 		color: <?php echo esc_attr( get_option( 'mm_bcc_buttontextcolor', "#fff" ) ); ?>;
 		border: none;
 		width: 100%;
+		font-size: 1.3rem;
+    	padding: 0.5rem 1rem;
 	}
 	
 	#mm_bcc .mainbutton:hover {
