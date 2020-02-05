@@ -8,14 +8,14 @@
  * that starts the plugin.
  *
  * @link              https://linkedin.com/in/shayanabbas
- * @since             2.0.0
+ * @since             2.0.1
  * @package           Facebook Cookie Consent
  *
  * @wordpress-plugin
  * Plugin Name:       FACEBOOK COOKIE CONSENT - Myyntimaatio
  * Plugin URI:        https://myyntimaatio.fi
  * Description:       Adds a cookie notice and a privacy notice with facebook pixel authorization.
- * Version:           2.0.0
+ * Version:           2.0.1
  * Author:            Shayan Abbas
  * Author URI:        https://linkedin.com/in/shayanabbas
  * License:           GPL-3.0+

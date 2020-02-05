@@ -4,7 +4,7 @@ Donate link: https://linkedin.com/in/shayanabbas
 Tags: comments, spam
 Requires at least: 5.2
 Tested up to: 5.3.2
-Stable tag: 2.0.0
+Stable tag: 2.0.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -34,6 +34,9 @@ So that I can answer here.
 
 
 == Changelog ==
+
+== 2.0.1 = 
+* Added feature to make selected cookie privacy page accessible on front-end so that when user clicks on it they will be able to read policy.
 
 = 2.0.0 =
 * Version released.
