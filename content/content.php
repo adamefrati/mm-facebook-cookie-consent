@@ -1,106 +1,128 @@
 <?php
-function mm_cce_content() {
+function mm_bcc_content() {
 ?>
 <style>
-	@keyframes fadein1 {
-		0% {
-			opacity: 0.5;
-		}
-		100% {
-			opacity: 1;
-		}
+	.modal {
+		max-width: 50vw;
 	}
-	
-	#mm_cce { 
-		width: 100%; 
-		animation: fadein1 1s;
-		position: fixed; 
-		left: 0px;
-		z-index: 9999;
-		display: table;
-		bottom:0px;
-		background: <?php echo esc_attr( get_option( 'mm_cce_bgcolor', '#333' ) ); ?>;
+	#mm_bcc_container {
+		width:70%;
+		margin:0 auto;
+	}
+	#mm_bcc { 
+		padding:5%;
+		background: <?php echo esc_attr( get_option( 'mm_bcc_bgcolor', '#e5e5e5' ) ); ?>;
 	}
 
 
-	#mm_cce .privacybutton {
-		background: <?php echo esc_attr( get_option( 'mm_cce_ppbuttonbg', '#000' ) ); ?>;
+	#mm_bcc .privacybutton {
+		background: <?php echo esc_attr( get_option( 'mm_bcc_ppbuttonbg', '#000' ) ); ?>;
 		color: inherit;
 		border: none;
 	}
-	
-	#mm_cce p {
-		display: table-cell;
+
+	#mm_bcc h1 {
+		color: <?php echo esc_attr( get_option( 'mm_bcc_textcolor', '#353535' ) ); ?>;
 		text-align: center;
-		width: 100%;
-		padding: 10px;
-		color: <?php echo esc_attr( get_option( 'mm_cce_textcolor', '#fff' ) ); ?>;
 	}
 	
-	#mm_cce .mainbutton {
-		background: <?php echo esc_attr( get_option( 'mm_cce_buttonbgcolor', '#000' ) ) ?>;
-		color: <?php echo esc_attr( get_option( 'mm_cce_buttontextcolor', "#fff" ) ); ?>;
-		border: none;
-	}
-	
-	#mm_cce .mainbutton:hover {
-		background: <?php echo esc_attr( get_option( 'mm_cce_buttonbgcolor_hover', '#131313' ) ) ?>;
-		color: <?php echo esc_attr( get_option( 'mm_cce_buttontextcolor_hover', "#fff" ) ); ?>;
-		border: none;
+	#mm_bcc p {
+		color: <?php echo esc_attr( get_option( 'mm_bcc_textcolor', '#353535' ) ); ?>;
 	}
 
-	#mm_cce a {
-		color: <?php echo esc_attr( get_option( 'mm_cce_learnmore_text_color', "#fff" ) ); ?>;
+	#mm_bcc .mainbutton_nessacary {
+		width:100%;
+		border:none;
+		color: <?php echo esc_attr( get_option( 'mm_bcc_learnmore_text_color', "#353535" ) ); ?>;
+	}
+	#mm_bcc .mainbutton_nessacary:focus {
+		background: none;
+		outline:none;
+	}
+	#mm_bcc .mainbutton_nessacary:hover {
+		width:100%;
+		border:none;
+		background: none;
+		color: <?php echo esc_attr( get_option( 'mm_bcc_learnmore_text_color_hover', "#595959" ) ); ?>;
+	}
+	
+	#mm_bcc .mainbutton {
+		background: <?php echo esc_attr( get_option( 'mm_bcc_buttonbgcolor', '#27b7f4' ) ) ?>;
+		color: <?php echo esc_attr( get_option( 'mm_bcc_buttontextcolor', "#fff" ) ); ?>;
+		border: none;
+		width: 100%;
+	}
+	
+	#mm_bcc .mainbutton:hover {
+		background: <?php echo esc_attr( get_option( 'mm_bcc_buttonbgcolor_hover', '#24abe5' ) ) ?>;
+		color: <?php echo esc_attr( get_option( 'mm_bcc_buttontextcolor_hover', "#fff" ) ); ?>;
+	}
+
+	#mm_bcc a {
+		color: <?php echo esc_attr( get_option( 'mm_bcc_learnmore_text_color', "#353535" ) ); ?>;
 		text-decoration: underline;
 	}
-	#mm_cce a:hover {
-		color: <?php echo esc_attr( get_option( 'mm_cce_learnmore_text_color_hover', "#dadada" ) ); ?>;
+	#mm_bcc a:hover {
+		color: <?php echo esc_attr( get_option( 'mm_bcc_learnmore_text_color_hover', "#595959" ) ); ?>;
 		text-decoration: underline;
 	}
 </style>
-<div id="mm_cce">
-	<p>
-		<?php if( function_exists( 'pll_e' ) ) {
-					pll_e( __( 'Verkkosivumme käyttää evästeitä saadaksesi parhaan käyttökokemuksen. Jatkaessasi sivuston käyttöä hyväksyt evästeet. ' ) );
-				}
-				else echo esc_attr( get_option( 'mm_cce_text', __( 'Verkkosivumme käyttää evästeitä saadaksesi parhaan käyttökokemuksen. Jatkaessasi sivuston käyttöä hyväksyt evästeet. ', 'mm-cookie-consent-europe' ) ) );
-		?>
 
-		<?php if( 1 == esc_attr( get_option( 'mm_cce_show_hyperlink_learnmore', 1 ) ) ) { ?>
-			<a href="<?php 
-				if( !function_exists( 'pll_register_string' ) ) {
-					echo get_page_link( esc_attr( get_option( 'mm_cce_learnmore_link', 1 ) ) ); 
-				} else {
-					$translations = pll_languages_list( array( 'fields' => 'name' ) );
-					for( $i = 0; $i < count( $translations ); $i++) {
-						if( $translations[ $i ] == pll_current_language( 'name' ) )
-							echo get_page_link( esc_attr( get_option( 'mm_cce_pp_' . $translations[ $i ], 1 ) ) );
+	<!-- Modal HTML embedded directly into document -->
+	<div id="mm_bcc" class="modal">
+		<div id="mm_bcc_container">
+			<h1>Evästeet</h1>
+		  	<p>
+			<?php if( function_exists( 'pll_e' ) ) {
+						pll_e( __( 'Verkkosivumme käyttää evästeitä saadaksesi parhaan käyttökokemuksen. Jatkaessasi sivuston käyttöä hyväksyt evästeet. ' ) );
 					}
-				}
-				?>"><?php 
-				if( 2 == esc_attr( get_option( 'mm_cce_sd', 1 ) ) )
-					echo "<button class='privacybutton' type='button'>";
-                if( function_exists( 'pll_e' ) ) {
-                    pll_e( __( 'Lue lisää' ) );
-                } else {
-                    echo esc_attr( get_option( 'mm_cce_learnmore_text', __( 'Lue lisää', 'mm-cookie-consent-europe' ) ) ); 
-				} 
-				if( 2 == esc_attr( get_option( 'mm_cce_sd', 1 ) ) )
-					echo "</button>";	
-				?></a>
-		<?php } ?>
+					else echo esc_attr( get_option( 'mm_bcc_text', __( 'Verkkosivumme käyttää evästeitä saadaksesi parhaan käyttökokemuksen. Jatkaessasi sivuston käyttöä hyväksyt evästeet. ', 'mm-facebook-cookie-consent' ) ) );
+			?>
+			<?php if( 1 == esc_attr( get_option( 'mm_bcc_show_hyperlink_learnmore', 1 ) ) ) { ?>
+				<a href="<?php 
+					if( !function_exists( 'pll_register_string' ) ) {
+						echo get_page_link( esc_attr( get_option( 'mm_bcc_learnmore_link', 1 ) ) ); 
+					} else {
+						$translations = pll_languages_list( array( 'fields' => 'name' ) );
+						for( $i = 0; $i < count( $translations ); $i++) {
+							if( $translations[ $i ] == pll_current_language( 'name' ) )
+								echo get_page_link( esc_attr( get_option( 'mm_bcc_pp_' . $translations[ $i ], 1 ) ) );
+						}
+					}
+					?>"><?php 
+					if( 2 == esc_attr( get_option( 'mm_bcc_sd', 1 ) ) )
+						echo "<button class='privacybutton' type='button'>";
+	                if( function_exists( 'pll_e' ) ) {
+	                    pll_e( __( 'Lue lisää' ) );
+	                } else {
+	                    echo esc_attr( get_option( 'mm_bcc_learnmore_text', __( 'Lue lisää', 'mm-facebook-cookie-consent' ) ) ); 
+					} 
+					if( 2 == esc_attr( get_option( 'mm_bcc_sd', 1 ) ) )
+						echo "</button>";	
+					?></a>
+			<?php } ?>
+		  	</p>
+		  	<p style="text-align: center; margin:0;">
+		  	<button type="button" class="mainbutton"><?php 
+	            if( function_exists( 'pll_e' ) ) {
+	                pll_e( __( 'Selvä' ) );
+	            } else {
+	                echo esc_attr( get_option( 'mm_bcc_buttontext', __( 'Selvä', 'mm-facebook-cookie-consent' ) ) ); 
+	            } ?>
+	        </button>
+	    	</p>
+
+		  	<button type="button" class="mainbutton_nessacary"><?php 
+	            if( function_exists( 'pll_e' ) ) {
+	                pll_e( __( 'Vain tarvittavat evästeet' ) );
+	            } else {
+	                echo esc_attr( get_option( 'mm_bcc_buttontext_nessacary', __( 'Vain tarvittavat evästeet', 'mm-facebook-cookie-consent' ) ) ); 
+	            } ?>
+	        </button>
+	    </div>
+	</div>
 
 
-        <button type="button" class="mainbutton" style="margin-left: 30px; margin-right: 30px;"><?php 
-            if( function_exists( 'pll_e' ) ) {
-                pll_e( __( 'Selvä' ) );
-            } else {
-                echo esc_attr( get_option( 'mm_cce_buttontext', __( 'Selvä', 'mm-cookie-consent-europe' ) ) ); 
-            } ?>
-        </button>
-		
-	</p>
-</div>
 <?php
 }
 ?>

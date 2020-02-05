@@ -2,25 +2,25 @@
 Contributors: ministryofcoders
 Donate link: https://linkedin.com/in/shayanabbas
 Tags: comments, spam
-Requires at least: 5.1
+Requires at least: 5.2
 Tested up to: 5.3.2
-Stable tag: 1.0.0
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Stable tag: 2.0.0
+License: GPLv3 or later
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-Adds a cookie notice and a privacy notice.
+Adds a cookie notice and a privacy notice with facebook pixel authorization. 
 
 == Description ==
 
-Adds a cookie notice and a privacy notice.
+Adds a cookie notice and a privacy notice with facebook pixel authorization. 
 
 
 == Installation ==
 
-1. Upload `mm-cookie-consent-europe` to the `/wp-content/plugins/` directory OR
-Upload `mm-cookie-consent-europe.zip` from `Wordpress > Plugins > Add new` menu.
+1. Upload `mm-facebook-cookie-consent` to the `/wp-content/plugins/` directory OR
+Upload `mm-facebook-cookie-consent.zip` from `Wordpress > Plugins > Add new` menu.
 2. Activate the plugin through the 'Plugins' menu in WordPress
-3. Go to Settings > Cookie Consent to configure.
+3. Go to Settings > FB Cookie Consent to configure.
 
 
 == Frequently Asked Questions ==
@@ -35,19 +35,7 @@ So that I can answer here.
 
 == Changelog ==
 
-= 1.0.3 =
-* Cookie consent menu will now appear under Myyntimaatio Launcher menu if it is activated, else it will be displayed under settings tab.
-* Fixed Color picker selection height.
-
-= 1.0.2 =
-* Added plugin update feature, so that it is not required to update by uploading plugin.
-* Accept cookie button was not working which is fixed.
-* JS files for backend and frontend are now separated because of conflict.
-
-= 1.0.1 =
-* HTML5 color picker replaced with wpColorPicker with transparency option.
-* Directory restructered for assets (js).
-
-= 1.0.0 =
+= 2.0.0 =
 * Version released.
+* Project forked from https://github.com/shayanabbas/mm-cookie-consent-europe
 
